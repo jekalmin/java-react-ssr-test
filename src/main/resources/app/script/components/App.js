@@ -1,8 +1,6 @@
-import _ from 'lodash';
-
 function App() {
 	console.log('app render')
-	return 'aaaaa';
+	return 'Hello World!';
 }
 
 export default App;

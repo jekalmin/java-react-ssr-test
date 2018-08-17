@@ -14,21 +14,33 @@ public class ServerRenderTestApplication {
         SpringApplication.run(ServerRenderTestApplication.class, args);
     }
 
+//    @Bean
+//    public ViewResolver viewResolver() {
+//        ScriptTemplateViewResolver viewResolver = new ScriptTemplateViewResolver();
+//        viewResolver.setPrefix("/public/");
+//        viewResolver.setSuffix(".html");
+//        return viewResolver;
+//    }
+//
+//    @Bean
+//    public ScriptTemplateConfigurer configurer() {
+//        ScriptTemplateConfigurer configurer = new ScriptTemplateConfigurer();
+//        configurer.setEngineName("nashorn");
+//        configurer.setScripts("static/polyfill.js", "public/server.js");
+//        configurer.setRenderFunction("render");
+//        configurer.setSharedEngine(false);
+//        return configurer;
+//    }
+
     @Bean
-    public ViewResolver viewResolver() {
-        ScriptTemplateViewResolver viewResolver = new ScriptTemplateViewResolver();
-        viewResolver.setPrefix("/public/");
-        viewResolver.setSuffix(".html");
-        return viewResolver;
+    public V8ScriptTemplateViewResolver viewResolver() {
+        return new V8ScriptTemplateViewResolver("/public/", ".html");
     }
 
     @Bean
-    public ScriptTemplateConfigurer configurer() {
-        ScriptTemplateConfigurer configurer = new ScriptTemplateConfigurer();
-        configurer.setEngineName("nashorn");
-        configurer.setScripts("static/polyfill.js", "public/server.js");
-        configurer.setRenderFunction("render");
-        configurer.setSharedEngine(false);
+    public V8ScriptTemplateConfigurer v8ScriptTemplateConfigurer() {
+        V8ScriptTemplateConfigurer configurer = new V8ScriptTemplateConfigurer("static/polyfill.js", "public/server.js");
+        configurer.renderFunction("render");
         return configurer;
     }
 
