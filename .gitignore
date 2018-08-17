@@ -1,0 +1,8 @@
+node_modules/
+src/main/resources/public
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.idea
+*.iws
+*.iml
+*.ipr
