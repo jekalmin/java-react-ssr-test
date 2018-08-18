@@ -1,7 +1,7 @@
 # spring-react-ssr-test
 ## Objective
 - Test Server Side Rendering(SSR) of React using Spring Boot
-- Performance difference between nashorn and j2v8
+- Performance difference of script engine between nashorn and j2v8
 
 ## Build and Run
 ```sh
